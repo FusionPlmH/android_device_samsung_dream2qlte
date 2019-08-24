@@ -64,7 +64,6 @@ TW_MAX_BRIGHTNESS := 25500
 TW_DEFAULT_BRIGHTNESS := 7000
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
-# TW_INCLUDE_NTFS_3G := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
@@ -78,7 +77,3 @@ TW_NO_HAPTICS := true
 TARGET_SYSTEM_PROP := device/samsung/dream2qlte/system.prop
 
 TW_NO_LEGACY_PROPS := true
-
-# encryption
-TW_INCLUDE_FBE := true
-TW_INCLUDE_CRYPTO := true

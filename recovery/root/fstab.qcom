@@ -11,8 +11,6 @@
 
 /dev/block/bootdevice/by-name/userdata   /data              ext4   noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic   wait,check,encryptable=footer
 
-/dev/block/bootdevice/by-name/userdata   /data              f2fs   rw,nosuid,nodev,noatime,nodiratime,inline_xattr 
-
 /dev/block/zram0                         none               swap   defaults                                                 zramsize=536870912
 /dev/block/bootdevice/by-name/misc       /misc              emmc   defaults                                                 defaults
 #/dev/block/bootdevice/by-name/modem      /firmware          vfat   ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait
@@ -20,7 +18,6 @@
 #/dev/block/bootdevice/by-name/persist    /persist           ext4   noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic   wait,check
 
 /dev/block/bootdevice/by-name/cache      /cache             ext4   noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic   wait,check
-/dev/block/bootdevice/by-name/cache      /cache             f2fs   rw,nosuid,nodev,noatime,nodiratime,inline_xattr 
 # VOLD : fstab_non_AB_variant.qcom
 /dev/block/bootdevice/by-name/efs        /efs                   ext4    defaults    voldmanaged=efs:auto
 /dev/block/bootdevice/by-name/hidden     /preload          	ext4    defaults    voldmanaged=preload:auto
