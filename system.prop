@@ -1,2 +1,2 @@
 sys.usb.controller=a800000.dwc3
-persist.sys.usb.config=mtp,adb
+persist.sys.usb.config=mtp

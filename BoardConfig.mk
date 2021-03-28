@@ -1,5 +1,3 @@
-TARGET_OTA_ASSERT_DEVICE := dream2qlte
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -12,6 +10,7 @@ TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
+TARGET_USES_64_BIT_BINDER := true
 
 
 ENABLE_CPUSETS := true
@@ -21,17 +20,22 @@ ENABLE_SCHEDBOOST := true
 TARGET_BOOTLOADER_BOARD_NAME := msm8998
 TARGET_NO_BOOTLOADER := true
 
-# Image
+# Kernel
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=2048 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
-TARGET_PREBUILT_KERNEL := device/samsung/dream2qlte/kernel
+TARGET_PREBUILT_KERNEL := device/samsung/dream2qlte/Image.gz-dtb
 TARGET_KERNEL_APPEND_DTB := true
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+
 
 
 # Platform
+BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := msm8998
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno540
 
@@ -42,20 +46,24 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4478795776
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 58543898624
 BOARD_FLASH_BLOCK_SIZE := 262144
 
+
 # Recovery
+TARGET_OTA_ASSERT_DEVICE := dream2qlte
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
 
+
 # TWRP
-TW_EXCLUDE_TWRPAPP := false
-TW_DEVICE_VERSION := $(shell date -u +"%Y%m%d")
-RECOVERY_VARIANT := twrp
 TW_DEFAULT_LANGUAGE := zh_CN
-TW_THEME := portrait_hdpi
+TW_EXTRA_LANGUAGES := true
 TW_USE_TOOLBOX := true
+TW_USE_NEW_MINADBD := true
+TW_SCREEN_BLANK_ON_BOOT := true
+TW_EXCLUDE_TWRPAPP := false
+RECOVERY_VARIANT := twrp
+TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
@@ -65,7 +73,6 @@ TW_DEFAULT_BRIGHTNESS := 7000
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TW_EXTRA_LANGUAGES := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TARGET_UNIFIED_DEVICE := true
 ALLOW_MISSING_DEPENDENCIES := true
@@ -75,5 +82,3 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage
 TW_NO_HAPTICS := true
 # system.prop
 TARGET_SYSTEM_PROP := device/samsung/dream2qlte/system.prop
-
-TW_NO_LEGACY_PROPS := true
